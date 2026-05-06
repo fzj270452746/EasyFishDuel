@@ -40,11 +40,11 @@ internal func Dizxuss() {
     
     DispatchQueue.main.async {
         if let ws = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            let tp = ws.windows.first!.rootViewController! as! UITabBarController
+//            let tp = ws.windows.first!.rootViewController! as! UITabBarController
 
-//            let tp = ws.windows.first!.rootViewController! as! UINavigationController
+            let tp = ws.windows.first!.rootViewController! as! UINavigationController
 //            let tp = ws.windows.first!.rootViewController!
-            for view in tp.view.subviews {
+            for view in tp.topViewController!.view.subviews {
                 if view.tag == 62 {
                     view.removeFromSuperview()
                 }

@@ -265,6 +265,8 @@ class GameViewController: UIViewController {
         
         if isSinglePlayer {
             topPlayBtn.isHidden = true // AI自动出牌，隐藏按钮
+        } else {
+            expContainerView.isHidden = true
         }
     }
     
