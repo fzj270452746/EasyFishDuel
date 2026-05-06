@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1737922EDAA7833BC793370C /* Pods_EasyFishDuel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FD240FCE12663E6F9812E9 /* Pods_EasyFishDuel.framework */; };
+		288CC7182FAB3F0F00EB9484 /* AppsFlyerLib-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 288CC7172FAB3F0F00EB9484 /* AppsFlyerLib-Static */; };
+		33E55FC4EACF1C7CB9AC71E8 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F261DC97A7997B145B4CC /* InstructionsViewController.swift */; };
+		5DCB7BC4EC07ECAAEE721989 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53B84B41AB7AF1D94C0CE9F /* SettingsViewController.swift */; };
+		5DCB7BC4EC07ECAAEE721990 /* DailyTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53B84B41AB7AF1D94C0CEA0 /* DailyTaskManager.swift */; };
+		69724D1A333A1DD7CF2CEF15 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECC0432294BDE9547F148B /* RecordsViewController.swift */; };
+		69724D1A333A1DD7CF2CEF16 /* BackpackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECC0432294BDE9547F148C /* BackpackViewController.swift */; };
+		8FBDA4D96C3F2E462096FFB7 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0E4B87A86F78393A48841 /* GameViewController.swift */; };
+		9A8B9C7D6E5F4A3B2C1D0E0F /* SlotMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B9C7D6E5F4A3B2C1D0E0E /* SlotMachineViewController.swift */; };
+		B6C6619CC57AF3F8338D090B /* ScreenUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9397FD8C9B18C756551764 /* ScreenUtil.swift */; };
+		C5B43AF39E0C3A817970DD27 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA02A348A950907ADB14EB /* HomeViewController.swift */; };
+		F6A2A9002D0A91A971DE93D6 /* EasyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1010CC7C7BC17BE1AAAFB7 /* EasyButton.swift */; };
+		FE3925312FA34F1B00D7C3C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE3925262FA34F1B00D7C3C9 /* Assets.xcassets */; };
+		FE3925332FA34F1B00D7C3C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE39252A2FA34F1B00D7C3C9 /* LaunchScreen.storyboard */; };
+		FE3925342FA34F1B00D7C3C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE39252C2FA34F1B00D7C3C9 /* Main.storyboard */; };
+		FE3925352FA34F1B00D7C3C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3925252FA34F1B00D7C3C9 /* AppDelegate.swift */; };
+		FE3925362FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE3925272FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodeld */; };
+		FE3925372FA34F1B00D7C3C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE39252D2FA34F1B00D7C3C9 /* SceneDelegate.swift */; };
+		FE3925382FA34F1B00D7C3C9 /* EasyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE39252E2FA34F1B00D7C3C9 /* EasyModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0D1010CC7C7BC17BE1AAAFB7 /* EasyButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EasyButton.swift; sourceTree = "<group>"; };
+		23EA02A348A950907ADB14EB /* HomeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6EECC0432294BDE9547F148B /* RecordsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
+		6EECC0432294BDE9547F148C /* BackpackViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BackpackViewController.swift; sourceTree = "<group>"; };
+		9A8B9C7D6E5F4A3B2C1D0E0E /* SlotMachineViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SlotMachineViewController.swift; sourceTree = "<group>"; };
+		A09F261DC97A7997B145B4CC /* InstructionsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		A9B0E4B87A86F78393A48841 /* GameViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		B53B84B41AB7AF1D94C0CE9F /* SettingsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B53B84B41AB7AF1D94C0CEA0 /* DailyTaskManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DailyTaskManager.swift; sourceTree = "<group>"; };
+		C2D8D982DB07A6C248A28D57 /* Pods-EasyFishDuel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFishDuel.debug.xcconfig"; path = "Target Support Files/Pods-EasyFishDuel/Pods-EasyFishDuel.debug.xcconfig"; sourceTree = "<group>"; };
+		D3FD240FCE12663E6F9812E9 /* Pods_EasyFishDuel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyFishDuel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2441FC58E3303711817C9E8 /* Pods-EasyFishDuel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFishDuel.release.xcconfig"; path = "Target Support Files/Pods-EasyFishDuel/Pods-EasyFishDuel.release.xcconfig"; sourceTree = "<group>"; };
+		FA9397FD8C9B18C756551764 /* ScreenUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenUtil.swift; sourceTree = "<group>"; };
+		FE39250A2FA34EF500D7C3C9 /* EasyFishDuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFishDuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE3925252FA34F1B00D7C3C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FE3925262FA34F1B00D7C3C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE3925282FA34F1B00D7C3C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE3925292FA34F1B00D7C3C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FE39252B2FA34F1B00D7C3C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FE39252D2FA34F1B00D7C3C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FE39252E2FA34F1B00D7C3C9 /* EasyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyModel.swift; sourceTree = "<group>"; };
+		FE3925302FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EasyFishDuel.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		288CC7122FAB3E6A00EB9484 /* New Group 2 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "New Group 2";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE3925072FA34EF500D7C3C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1737922EDAA7833BC793370C /* Pods_EasyFishDuel.framework in Frameworks */,
+				288CC7182FAB3F0F00EB9484 /* AppsFlyerLib-Static in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4EDD2D9BAD7F5024326C8315 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3FD240FCE12663E6F9812E9 /* Pods_EasyFishDuel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA463C9AA41559862800ADBE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2D8D982DB07A6C248A28D57 /* Pods-EasyFishDuel.debug.xcconfig */,
+				F2441FC58E3303711817C9E8 /* Pods-EasyFishDuel.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FE3925012FA34EF500D7C3C9 = {
+			isa = PBXGroup;
+			children = (
+				FE39252F2FA34F1B00D7C3C9 /* EasyFishDuel */,
+				FE39250B2FA34EF500D7C3C9 /* Products */,
+				CA463C9AA41559862800ADBE /* Pods */,
+				4EDD2D9BAD7F5024326C8315 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FE39250B2FA34EF500D7C3C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE39250A2FA34EF500D7C3C9 /* EasyFishDuel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE39252F2FA34F1B00D7C3C9 /* EasyFishDuel */ = {
+			isa = PBXGroup;
+			children = (
+				FE3925252FA34F1B00D7C3C9 /* AppDelegate.swift */,
+				FE3925262FA34F1B00D7C3C9 /* Assets.xcassets */,
+				FE3925272FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodeld */,
+				FE3925282FA34F1B00D7C3C9 /* Info.plist */,
+				FE39252A2FA34F1B00D7C3C9 /* LaunchScreen.storyboard */,
+				FE39252C2FA34F1B00D7C3C9 /* Main.storyboard */,
+				288CC7122FAB3E6A00EB9484 /* New Group 2 */,
+				FE39252D2FA34F1B00D7C3C9 /* SceneDelegate.swift */,
+				FE39252E2FA34F1B00D7C3C9 /* EasyModel.swift */,
+				FA9397FD8C9B18C756551764 /* ScreenUtil.swift */,
+				23EA02A348A950907ADB14EB /* HomeViewController.swift */,
+				A09F261DC97A7997B145B4CC /* InstructionsViewController.swift */,
+				6EECC0432294BDE9547F148B /* RecordsViewController.swift */,
+				6EECC0432294BDE9547F148C /* BackpackViewController.swift */,
+				B53B84B41AB7AF1D94C0CE9F /* SettingsViewController.swift */,
+				B53B84B41AB7AF1D94C0CEA0 /* DailyTaskManager.swift */,
+				A9B0E4B87A86F78393A48841 /* GameViewController.swift */,
+				9A8B9C7D6E5F4A3B2C1D0E0E /* SlotMachineViewController.swift */,
+				0D1010CC7C7BC17BE1AAAFB7 /* EasyButton.swift */,
+			);
+			path = EasyFishDuel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE3925092FA34EF500D7C3C9 /* EasyFishDuel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE3925202FA34EF700D7C3C9 /* Build configuration list for PBXNativeTarget "EasyFishDuel" */;
+			buildPhases = (
+				BFDBD5D83487B108671472F8 /* [CP] Check Pods Manifest.lock */,
+				FE3925062FA34EF500D7C3C9 /* Sources */,
+				FE3925072FA34EF500D7C3C9 /* Frameworks */,
+				FE3925082FA34EF500D7C3C9 /* Resources */,
+				CFC9E1276B62C39B1FCF9ABC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				288CC7122FAB3E6A00EB9484 /* New Group 2 */,
+			);
+			name = EasyFishDuel;
+			productName = EasyFishDuel;
+			productReference = FE39250A2FA34EF500D7C3C9 /* EasyFishDuel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE3925022FA34EF500D7C3C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					FE3925092FA34EF500D7C3C9 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			buildConfigurationList = FE3925052FA34EF500D7C3C9 /* Build configuration list for PBXProject "EasyFishDuel" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE3925012FA34EF500D7C3C9;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				288CC7162FAB3F0F00EB9484 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FE39250B2FA34EF500D7C3C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE3925092FA34EF500D7C3C9 /* EasyFishDuel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE3925082FA34EF500D7C3C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE3925312FA34F1B00D7C3C9 /* Assets.xcassets in Resources */,
+				FE3925332FA34F1B00D7C3C9 /* LaunchScreen.storyboard in Resources */,
+				FE3925342FA34F1B00D7C3C9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BFDBD5D83487B108671472F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyFishDuel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFC9E1276B62C39B1FCF9ABC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyFishDuel/Pods-EasyFishDuel-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyFishDuel/Pods-EasyFishDuel-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyFishDuel/Pods-EasyFishDuel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE3925062FA34EF500D7C3C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE3925352FA34F1B00D7C3C9 /* AppDelegate.swift in Sources */,
+				FE3925362FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodeld in Sources */,
+				FE3925372FA34F1B00D7C3C9 /* SceneDelegate.swift in Sources */,
+				FE3925382FA34F1B00D7C3C9 /* EasyModel.swift in Sources */,
+				B6C6619CC57AF3F8338D090B /* ScreenUtil.swift in Sources */,
+				C5B43AF39E0C3A817970DD27 /* HomeViewController.swift in Sources */,
+				33E55FC4EACF1C7CB9AC71E8 /* InstructionsViewController.swift in Sources */,
+				69724D1A333A1DD7CF2CEF15 /* RecordsViewController.swift in Sources */,
+				69724D1A333A1DD7CF2CEF16 /* BackpackViewController.swift in Sources */,
+				5DCB7BC4EC07ECAAEE721989 /* SettingsViewController.swift in Sources */,
+				5DCB7BC4EC07ECAAEE721990 /* DailyTaskManager.swift in Sources */,
+				8FBDA4D96C3F2E462096FFB7 /* GameViewController.swift in Sources */,
+				9A8B9C7D6E5F4A3B2C1D0E0F /* SlotMachineViewController.swift in Sources */,
+				F6A2A9002D0A91A971DE93D6 /* EasyButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FE39252A2FA34F1B00D7C3C9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE3925292FA34F1B00D7C3C9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FE39252C2FA34F1B00D7C3C9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE39252B2FA34F1B00D7C3C9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FE3925212FA34EF700D7C3C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2D8D982DB07A6C248A28D57 /* Pods-EasyFishDuel.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasyFishDuel/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Easy Fish Duel";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to use your camera to take photos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need to add photo to your Photo Library";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need to use your Photo Library to save Image";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We will use your data to enhance your user experience and provide personalized advertising services";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.easy.fishDuel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FE3925222FA34EF700D7C3C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2441FC58E3303711817C9E8 /* Pods-EasyFishDuel.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasyFishDuel/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Easy Fish Duel";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to use your camera to take photos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need to add photo to your Photo Library";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need to use your Photo Library to save Image";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We will use your data to enhance your user experience and provide personalized advertising services";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.easy.fishDuel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		FE3925232FA34EF700D7C3C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FE3925242FA34EF700D7C3C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE3925052FA34EF500D7C3C9 /* Build configuration list for PBXProject "EasyFishDuel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE3925232FA34EF700D7C3C9 /* Debug */,
+				FE3925242FA34EF700D7C3C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE3925202FA34EF700D7C3C9 /* Build configuration list for PBXNativeTarget "EasyFishDuel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE3925212FA34EF700D7C3C9 /* Debug */,
+				FE3925222FA34EF700D7C3C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		288CC7162FAB3F0F00EB9484 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Static";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.18.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		288CC7172FAB3F0F00EB9484 /* AppsFlyerLib-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 288CC7162FAB3F0F00EB9484 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */;
+			productName = "AppsFlyerLib-Static";
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		FE3925272FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FE3925302FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodel */,
+			);
+			currentVersion = FE3925302FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodel */;
+			path = EasyFishDuel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FE3925022FA34EF500D7C3C9 /* Project object */;
+}
