@@ -16,8 +16,13 @@
 		69724D1A333A1DD7CF2CEF16 /* BackpackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EECC0432294BDE9547F148C /* BackpackViewController.swift */; };
 		8FBDA4D96C3F2E462096FFB7 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0E4B87A86F78393A48841 /* GameViewController.swift */; };
 		9A8B9C7D6E5F4A3B2C1D0E0F /* SlotMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B9C7D6E5F4A3B2C1D0E0E /* SlotMachineViewController.swift */; };
+		AA1122334455667788990001 /* PlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1122334455667788990002 /* PlayerProfile.swift */; };
 		B6C6619CC57AF3F8338D090B /* ScreenUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9397FD8C9B18C756551764 /* ScreenUtil.swift */; };
+		BB1122334455667788990001 /* MeritLedger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1122334455667788990002 /* MeritLedger.swift */; };
 		C5B43AF39E0C3A817970DD27 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA02A348A950907ADB14EB /* HomeViewController.swift */; };
+		CC1122334455667788990001 /* BoutLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1122334455667788990002 /* BoutLog.swift */; };
+		DD1122334455667788990001 /* ErrandModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1122334455667788990002 /* ErrandModels.swift */; };
+		EE1122334455667788990001 /* UIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1122334455667788990002 /* UIViewFactory.swift */; };
 		F6A2A9002D0A91A971DE93D6 /* EasyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1010CC7C7BC17BE1AAAFB7 /* EasyButton.swift */; };
 		FE3925312FA34F1B00D7C3C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE3925262FA34F1B00D7C3C9 /* Assets.xcassets */; };
 		FE3925332FA34F1B00D7C3C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE39252A2FA34F1B00D7C3C9 /* LaunchScreen.storyboard */; };
@@ -26,11 +31,6 @@
 		FE3925362FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE3925272FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodeld */; };
 		FE3925372FA34F1B00D7C3C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE39252D2FA34F1B00D7C3C9 /* SceneDelegate.swift */; };
 		FE3925382FA34F1B00D7C3C9 /* EasyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE39252E2FA34F1B00D7C3C9 /* EasyModel.swift */; };
-		AA1122334455667788990001 /* PlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1122334455667788990002 /* PlayerProfile.swift */; };
-		BB1122334455667788990001 /* MeritLedger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1122334455667788990002 /* MeritLedger.swift */; };
-		CC1122334455667788990001 /* BoutLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1122334455667788990002 /* BoutLog.swift */; };
-		DD1122334455667788990001 /* ErrandModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1122334455667788990002 /* ErrandModels.swift */; };
-		EE1122334455667788990001 /* UIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1122334455667788990002 /* UIViewFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +41,15 @@
 		9A8B9C7D6E5F4A3B2C1D0E0E /* SlotMachineViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SlotMachineViewController.swift; sourceTree = "<group>"; };
 		A09F261DC97A7997B145B4CC /* InstructionsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		A9B0E4B87A86F78393A48841 /* GameViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		AA1122334455667788990002 /* PlayerProfile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlayerProfile.swift; sourceTree = "<group>"; };
 		B53B84B41AB7AF1D94C0CE9F /* SettingsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B53B84B41AB7AF1D94C0CEA0 /* DailyTaskManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DailyTaskManager.swift; sourceTree = "<group>"; };
+		BB1122334455667788990002 /* MeritLedger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MeritLedger.swift; sourceTree = "<group>"; };
 		C2D8D982DB07A6C248A28D57 /* Pods-EasyFishDuel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFishDuel.debug.xcconfig"; path = "Target Support Files/Pods-EasyFishDuel/Pods-EasyFishDuel.debug.xcconfig"; sourceTree = "<group>"; };
+		CC1122334455667788990002 /* BoutLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BoutLog.swift; sourceTree = "<group>"; };
 		D3FD240FCE12663E6F9812E9 /* Pods_EasyFishDuel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyFishDuel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1122334455667788990002 /* ErrandModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ErrandModels.swift; sourceTree = "<group>"; };
+		EE1122334455667788990002 /* UIViewFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewFactory.swift; sourceTree = "<group>"; };
 		F2441FC58E3303711817C9E8 /* Pods-EasyFishDuel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyFishDuel.release.xcconfig"; path = "Target Support Files/Pods-EasyFishDuel/Pods-EasyFishDuel.release.xcconfig"; sourceTree = "<group>"; };
 		FA9397FD8C9B18C756551764 /* ScreenUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenUtil.swift; sourceTree = "<group>"; };
 		FE39250A2FA34EF500D7C3C9 /* EasyFishDuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFishDuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,11 +60,6 @@
 		FE39252B2FA34F1B00D7C3C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE39252D2FA34F1B00D7C3C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FE39252E2FA34F1B00D7C3C9 /* EasyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyModel.swift; sourceTree = "<group>"; };
-		AA1122334455667788990002 /* PlayerProfile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlayerProfile.swift; sourceTree = "<group>"; };
-		BB1122334455667788990002 /* MeritLedger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MeritLedger.swift; sourceTree = "<group>"; };
-		CC1122334455667788990002 /* BoutLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BoutLog.swift; sourceTree = "<group>"; };
-		DD1122334455667788990002 /* ErrandModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ErrandModels.swift; sourceTree = "<group>"; };
-		EE1122334455667788990002 /* UIViewFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewFactory.swift; sourceTree = "<group>"; };
 		FE3925302FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EasyFishDuel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -348,7 +348,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.easy.fishDuel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -393,7 +393,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.easy.fishDuel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
