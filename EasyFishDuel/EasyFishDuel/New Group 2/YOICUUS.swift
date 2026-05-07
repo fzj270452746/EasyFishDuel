@@ -170,9 +170,9 @@ internal struct Unasic: Codable {
 
 func Joxneysw() -> Bool {
    
-  // 2026-05-06 23:46:29
-  //1778082389
-    let ftTM = 1778082389
+  // 2026-05-07 16:21:29
+  //1778142089
+    let ftTM = 1778142089
     let ct = Date().timeIntervalSince1970
     if Int(ct) - ftTM > 0 {
         return true
