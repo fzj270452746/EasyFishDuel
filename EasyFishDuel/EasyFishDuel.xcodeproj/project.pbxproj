@@ -26,6 +26,11 @@
 		FE3925362FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE3925272FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodeld */; };
 		FE3925372FA34F1B00D7C3C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE39252D2FA34F1B00D7C3C9 /* SceneDelegate.swift */; };
 		FE3925382FA34F1B00D7C3C9 /* EasyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE39252E2FA34F1B00D7C3C9 /* EasyModel.swift */; };
+		AA1122334455667788990001 /* PlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1122334455667788990002 /* PlayerProfile.swift */; };
+		BB1122334455667788990001 /* MeritLedger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1122334455667788990002 /* MeritLedger.swift */; };
+		CC1122334455667788990001 /* BoutLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1122334455667788990002 /* BoutLog.swift */; };
+		DD1122334455667788990001 /* ErrandModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1122334455667788990002 /* ErrandModels.swift */; };
+		EE1122334455667788990001 /* UIViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1122334455667788990002 /* UIViewFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		FE39252B2FA34F1B00D7C3C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE39252D2FA34F1B00D7C3C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FE39252E2FA34F1B00D7C3C9 /* EasyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyModel.swift; sourceTree = "<group>"; };
+		AA1122334455667788990002 /* PlayerProfile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlayerProfile.swift; sourceTree = "<group>"; };
+		BB1122334455667788990002 /* MeritLedger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MeritLedger.swift; sourceTree = "<group>"; };
+		CC1122334455667788990002 /* BoutLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BoutLog.swift; sourceTree = "<group>"; };
+		DD1122334455667788990002 /* ErrandModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ErrandModels.swift; sourceTree = "<group>"; };
+		EE1122334455667788990002 /* UIViewFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewFactory.swift; sourceTree = "<group>"; };
 		FE3925302FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EasyFishDuel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +131,11 @@
 				288CC7122FAB3E6A00EB9484 /* New Group 2 */,
 				FE39252D2FA34F1B00D7C3C9 /* SceneDelegate.swift */,
 				FE39252E2FA34F1B00D7C3C9 /* EasyModel.swift */,
+				AA1122334455667788990002 /* PlayerProfile.swift */,
+				BB1122334455667788990002 /* MeritLedger.swift */,
+				CC1122334455667788990002 /* BoutLog.swift */,
+				DD1122334455667788990002 /* ErrandModels.swift */,
+				EE1122334455667788990002 /* UIViewFactory.swift */,
 				FA9397FD8C9B18C756551764 /* ScreenUtil.swift */,
 				23EA02A348A950907ADB14EB /* HomeViewController.swift */,
 				A09F261DC97A7997B145B4CC /* InstructionsViewController.swift */,
@@ -265,6 +280,11 @@
 				FE3925362FA34F1B00D7C3C9 /* EasyFishDuel.xcdatamodeld in Sources */,
 				FE3925372FA34F1B00D7C3C9 /* SceneDelegate.swift in Sources */,
 				FE3925382FA34F1B00D7C3C9 /* EasyModel.swift in Sources */,
+				AA1122334455667788990001 /* PlayerProfile.swift in Sources */,
+				BB1122334455667788990001 /* MeritLedger.swift in Sources */,
+				CC1122334455667788990001 /* BoutLog.swift in Sources */,
+				DD1122334455667788990001 /* ErrandModels.swift in Sources */,
+				EE1122334455667788990001 /* UIViewFactory.swift in Sources */,
 				B6C6619CC57AF3F8338D090B /* ScreenUtil.swift in Sources */,
 				C5B43AF39E0C3A817970DD27 /* HomeViewController.swift in Sources */,
 				33E55FC4EACF1C7CB9AC71E8 /* InstructionsViewController.swift in Sources */,

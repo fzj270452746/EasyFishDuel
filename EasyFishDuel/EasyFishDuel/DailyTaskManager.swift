@@ -1,123 +1,117 @@
 import Foundation
 
-enum DailyTaskRewardType: String, Codable {
-    case coins
-    case fish
-}
+class ErrandRegistry {
+    static let active = ErrandRegistry()
 
-enum DailyTaskActionType: String, Codable {
-    case playMatch
-    case catchFish
-    case spinSlot
-    case sellFish
-}
+    private let errandStoreKey = "daily.tasks"
+    private let errandDateKey  = "daily.tasks.date"
+    private let poolConfig     = ErrandPoolConfig.default
 
-struct DailyTask: Codable {
-    let id: Int
-    let title: String
-    let actionType: DailyTaskActionType
-    let target: Int
-    var progress: Int
-    let rewardType: DailyTaskRewardType
-    let rewardAmount: Int
-    var isClaimed: Bool
-
-    var isCompleted: Bool { progress >= target }
-}
-
-class DailyTaskManager {
-    static let shared = DailyTaskManager()
-
-    private let tasksKey = "daily.tasks"
-    private let dateKey = "daily.tasks.date"
-
-    func getTasks() -> [DailyTask] {
-        ensureTasksIfNeeded()
-        guard let data = UserDefaults.standard.data(forKey: tasksKey),
-              let tasks = try? JSONDecoder().decode([DailyTask].self, from: data),
-              !tasks.isEmpty else {
-            let regenerated = generateTasks()
-            saveTasks(regenerated)
-            UserDefaults.standard.set(todayString(), forKey: dateKey)
-            return regenerated
+    func fetchErrands() -> [ErrandItem] {
+        rotateIfExpired()
+        guard let data = UserDefaults.standard.data(forKey: errandStoreKey),
+              let list = try? JSONDecoder().decode([ErrandItem].self, from: data),
+              !list.isEmpty else {
+            let fresh = mintErrandPool()
+            persistErrands(fresh)
+            UserDefaults.standard.set(dateStamp(), forKey: errandDateKey)
+            return fresh
         }
-        return tasks
+        return list
     }
 
-    func updateProgress(for action: DailyTaskActionType, amount: Int = 1) {
-        var tasks = getTasks()
-        var changed = false
-        for index in tasks.indices {
-            if tasks[index].actionType == action && !tasks[index].isClaimed && !tasks[index].isCompleted {
-                tasks[index].progress = min(tasks[index].target, tasks[index].progress + max(1, amount))
-                changed = true
-            }
+    func markProgress(kind: ErrandKind, by amount: Int = 1) {
+        var list = fetchErrands()
+        var touched = false
+        let effectiveAmount = max(1, amount)
+        for i in list.indices {
+            guard list[i].kind == kind else { continue }
+            guard !list[i].collected, !list[i].isDone else { continue }
+            let prev = list[i].done
+            list[i].done = min(list[i].quota, prev + effectiveAmount)
+            if list[i].done != prev { touched = true }
         }
-        if changed { saveTasks(tasks) }
+        if touched { persistErrands(list) }
     }
 
-    func claimTask(id: Int) -> String? {
-        var tasks = getTasks()
-        guard let index = tasks.firstIndex(where: { $0.id == id }) else { return nil }
-        let task = tasks[index]
-        guard task.isCompleted, !task.isClaimed else { return nil }
+    func collectErrand(uid: Int) -> String? {
+        var list = fetchErrands()
+        guard let idx = list.firstIndex(where: { $0.uid == uid }) else { return nil }
+        let item = list[idx]
+        guard item.isDone, !item.collected else { return nil }
 
-        tasks[index].isClaimed = true
-        saveTasks(tasks)
+        list[idx].collected = true
+        persistErrands(list)
 
-        switch task.rewardType {
-        case .coins:
-            PlayerProgressManager.shared.coins += task.rewardAmount
-            return "Reward: +\(task.rewardAmount) coins"
-        case .fish:
-            let fishType = PlayerProgressManager.shared.fishTypeByProbability(for: PlayerProgressManager.shared.level)
-            PlayerProgressManager.shared.addFishToInventory(type: fishType, count: task.rewardAmount)
-            return "Reward: +\(task.rewardAmount) fish"
+        let bountyCount = item.bountyCount
+        switch item.bounty {
+        case .token:
+            let prev = MeritLedger.active.chips
+            MeritLedger.active.chips = prev + bountyCount
+            return "Reward: +\(bountyCount) coins"
+        case .haul:
+            let kind = MeritLedger.active.wareKindByOdds(at: MeritLedger.active.grade)
+            let stashCount = bountyCount > 0 ? bountyCount : 1
+            MeritLedger.active.stashWare(kind: kind, amount: stashCount)
+            return "Reward: +\(stashCount) fish"
         }
     }
 
-    func summaryText() -> String {
-        let tasks = getTasks()
-        let completed = tasks.filter { $0.isCompleted }.count
-        return "Daily Tasks (\(completed)/\(tasks.count))"
+    func statusLine() -> String {
+        let list = fetchErrands()
+        let doneCount = list.filter { $0.isDone }.count
+        return "Daily Tasks (\(doneCount)/\(list.count))"
     }
 
-    private func ensureTasksIfNeeded() {
-        let today = todayString()
-        let savedDate = UserDefaults.standard.string(forKey: dateKey)
-        if savedDate != today {
-            let newTasks = generateTasks()
-            saveTasks(newTasks)
-            UserDefaults.standard.set(today, forKey: dateKey)
+    func completionFraction() -> Double {
+        let list = fetchErrands()
+        guard !list.isEmpty else { return 0 }
+        return Double(list.filter { $0.isDone }.count) / Double(list.count)
+    }
+
+    private func rotateIfExpired() {
+        let today = dateStamp()
+        let saved = UserDefaults.standard.string(forKey: errandDateKey)
+        if saved != today {
+            let fresh = mintErrandPool()
+            persistErrands(fresh)
+            UserDefaults.standard.set(today, forKey: errandDateKey)
         }
     }
 
-    private func saveTasks(_ tasks: [DailyTask]) {
-        if let data = try? JSONEncoder().encode(tasks) {
-            UserDefaults.standard.set(data, forKey: tasksKey)
+    private func persistErrands(_ list: [ErrandItem]) {
+        if let data = try? JSONEncoder().encode(list) {
+            UserDefaults.standard.set(data, forKey: errandStoreKey)
         }
     }
 
-    private func generateTasks() -> [DailyTask] {
-        let taskPool: [DailyTask] = [
-            DailyTask(id: 1, title: "Play 1 Match", actionType: .playMatch, target: 1, progress: 0, rewardType: .coins, rewardAmount: 20, isClaimed: false),
-            DailyTask(id: 2, title: "Play 3 Matches", actionType: .playMatch, target: 3, progress: 0, rewardType: .coins, rewardAmount: 45, isClaimed: false),
-            DailyTask(id: 3, title: "Catch 10 Fish", actionType: .catchFish, target: 10, progress: 0, rewardType: .fish, rewardAmount: 6, isClaimed: false),
-            DailyTask(id: 4, title: "Spin Slot 5 Times", actionType: .spinSlot, target: 5, progress: 0, rewardType: .coins, rewardAmount: 30, isClaimed: false),
-            DailyTask(id: 5, title: "Sell Fish 2 Times", actionType: .sellFish, target: 2, progress: 0, rewardType: .fish, rewardAmount: 8, isClaimed: false),
-            DailyTask(id: 6, title: "Catch 20 Fish", actionType: .catchFish, target: 20, progress: 0, rewardType: .coins, rewardAmount: 60, isClaimed: false)
+    private func mintErrandPool() -> [ErrandItem] {
+        let pool: [ErrandItem] = [
+            ErrandItem(uid: 1, label: "Play 1 Match",    kind: .boutFinish,  quota: 1,  done: 0, bounty: .token, bountyCount: 20, collected: false),
+            ErrandItem(uid: 2, label: "Play 3 Matches",  kind: .boutFinish,  quota: 3,  done: 0, bounty: .token, bountyCount: 45, collected: false),
+            ErrandItem(uid: 3, label: "Catch 10 Fish",   kind: .haulSnagged, quota: 10, done: 0, bounty: .haul,  bountyCount: 6,  collected: false),
+            ErrandItem(uid: 4, label: "Spin Slot 5 Times", kind: .reelSpin,  quota: 5,  done: 0, bounty: .token, bountyCount: 30, collected: false),
+            ErrandItem(uid: 5, label: "Sell Fish 2 Times", kind: .haulBarter, quota: 2, done: 0, bounty: .haul,  bountyCount: 8,  collected: false),
+            ErrandItem(uid: 6, label: "Catch 20 Fish",   kind: .haulSnagged, quota: 20, done: 0, bounty: .token, bountyCount: 60, collected: false)
         ]
 
-        let count = Int.random(in: 3...5)
-        let selected = Array(taskPool.shuffled().prefix(count)).enumerated().map { offset, item in
-            DailyTask(id: offset + 1, title: item.title, actionType: item.actionType, target: item.target, progress: 0, rewardType: item.rewardType, rewardAmount: item.rewardAmount, isClaimed: false)
+        let count = poolConfig.resolvedCount()
+        let shuffled = pool.shuffled()
+        let picked = Array(shuffled.prefix(count))
+        let normalized = picked.filter { $0.quota > 0 }
+        return normalized.enumerated().map { offset, item in
+            ErrandItem(uid: offset + 1, label: item.label, kind: item.kind,
+                       quota: item.quota, done: 0,
+                       bounty: item.bounty, bountyCount: item.bountyCount,
+                       collected: false)
         }
-        return selected
     }
 
-    private func todayString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.string(from: Date())
+    private func dateStamp() -> String {
+        let fmt = DateFormatter()
+        fmt.dateFormat = "yyyy-MM-dd"
+        let raw = fmt.string(from: Date())
+        guard !raw.isEmpty else { return "1970-01-01" }
+        return raw
     }
 }

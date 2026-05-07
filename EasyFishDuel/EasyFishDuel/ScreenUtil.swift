@@ -1,45 +1,63 @@
 import UIKit
 
-/// 屏幕宽度
-let kScreenWidth = UIScreen.main.bounds.width
-/// 屏幕高度
-let kScreenHeight = UIScreen.main.bounds.height
-/// 设计稿宽度 (以 iPhone 8/X/11 Pro 为基准)
-let kDesignWidth: CGFloat = 375.0
+// MARK: - Screen Metrics
 
-/// 屏幕缩放比例，做最大限制防止在 iPad 上元素过大
-let kScaleFactor: CGFloat = min(kScreenWidth / kDesignWidth, 1.5)
+let ScreenWidth  = UIScreen.main.bounds.width
+let ScreenHeight = UIScreen.main.bounds.height
+let DesignWidth: CGFloat = 375.0
+let DesignHeight: CGFloat = 812.0
 
-/// 屏幕适配工具扩展，模拟 flutter_screenutil 的 .w 和 .sp
+let ScaleFactor: CGFloat = min(ScreenWidth / DesignWidth, 1.5)
+let HeightScaleFactor: CGFloat = min(ScreenHeight / DesignHeight, 1.5)
+
+// MARK: - CGFloat scaling
+
 extension CGFloat {
-    /// 宽度适配
-    var w: CGFloat {
-        return self * kScaleFactor
-    }
-    /// 字体大小适配 (通常与宽度适配一致)
-    var sp: CGFloat {
-        return self * kScaleFactor
-    }
+    var scaledW: CGFloat { self * ScaleFactor }
+    var scaledF: CGFloat { self * ScaleFactor }
+    var scaledH: CGFloat { self * HeightScaleFactor }
 }
+
+// MARK: - Int scaling
 
 extension Int {
-    /// 宽度适配
-    var w: CGFloat {
-        return CGFloat(self) * kScaleFactor
+    var scaledW: CGFloat { CGFloat(self) * ScaleFactor }
+    var scaledF: CGFloat { CGFloat(self) * ScaleFactor }
+    var scaledH: CGFloat { CGFloat(self) * HeightScaleFactor }
+}
+
+// MARK: - Double scaling
+
+extension Double {
+    var scaledW: CGFloat { CGFloat(self) * ScaleFactor }
+    var scaledF: CGFloat { CGFloat(self) * ScaleFactor }
+    var scaledH: CGFloat { CGFloat(self) * HeightScaleFactor }
+}
+
+// MARK: - Device helpers (reserved for future adaptive layout)
+
+enum DeviceClass {
+    case compact
+    case regular
+    case large
+
+    static var current: DeviceClass {
+        if ScreenWidth >= 428 { return .large }
+        if ScreenWidth >= 375 { return .regular }
+        return .compact
     }
-    /// 字体大小适配
-    var sp: CGFloat {
-        return CGFloat(self) * kScaleFactor
+
+    var baseSpacing: CGFloat {
+        switch self {
+        case .compact: return 12
+        case .regular: return 16
+        case .large:   return 20
+        }
     }
 }
 
-extension Double {
-    /// 宽度适配
-    var w: CGFloat {
-        return CGFloat(self) * kScaleFactor
-    }
-    /// 字体大小适配
-    var sp: CGFloat {
-        return CGFloat(self) * kScaleFactor
+extension CGFloat {
+    var adaptiveSpacing: CGFloat {
+        self * DeviceClass.current.baseSpacing / 16
     }
 }

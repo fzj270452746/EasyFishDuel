@@ -1,80 +1,74 @@
 import UIKit
 
-/// 玩法说明控制器
-class InstructionsViewController: UIViewController {
+class RulebookController: UIViewController {
 
-    /// 背景图
     private lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "easyImage")
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
+        let v = UIImageView()
+        v.image = UIImage(named: "easyImage")
+        v.contentMode = .scaleAspectFill
+        v.clipsToBounds = true
+        return v
     }()
-    
-    /// 返回按钮
+
     private lazy var backBtn: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = UIColor(white: 1.0, alpha: 0.25)
-        button.layer.cornerRadius = 20.w
-        button.layer.borderWidth = 1.5
-        button.layer.borderColor = UIColor.white.withAlphaComponent(0.8).cgColor
-        button.layer.shadowColor = UIColor.white.cgColor
-        button.layer.shadowOpacity = 0.5
-        button.layer.shadowOffset = .zero
-        button.layer.shadowRadius = 5
-        button.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
-        return button
+        let b = UIButton(type: .system)
+        b.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        b.tintColor = .white
+        b.backgroundColor = UIColor(white: 1.0, alpha: 0.25)
+        b.layer.cornerRadius = 20.scaledW
+        b.layer.borderWidth = 1.5
+        b.layer.borderColor = UIColor.white.withAlphaComponent(0.8).cgColor
+        b.layer.shadowColor = UIColor.white.cgColor
+        b.layer.shadowOpacity = 0.5
+        b.layer.shadowOffset = .zero
+        b.layer.shadowRadius = 5
+        b.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        return b
     }()
-    
-    /// 标题
+
     private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "How to Play"
-        label.font = UIFont.systemFont(ofSize: 30.sp, weight: .bold)
-        label.textColor = .white
-        label.textAlignment = .center
-        label.shadowColor = .black
-        label.shadowOffset = CGSize(width: 2, height: 2)
-        return label
+        let l = UILabel()
+        l.text = "How to Play"
+        l.font = UIFont.systemFont(ofSize: 30.scaledF, weight: .bold)
+        l.textColor = .white
+        l.textAlignment = .center
+        l.shadowColor = .black
+        l.shadowOffset = CGSize(width: 2, height: 2)
+        return l
     }()
-    
-    /// 文本容器
+
     private lazy var containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        view.layer.cornerRadius = 20.w
-        view.layer.borderWidth = 1.5
-        view.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
-        return view
+        let v = UIView()
+        v.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        v.layer.cornerRadius = 20.scaledW
+        v.layer.borderWidth = 1.5
+        v.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
+        return v
     }()
-    
-    /// 说明文本
-    private lazy var instructionsTextView: UITextView = {
-        let textView = UITextView()
-        textView.backgroundColor = .clear
-        textView.textColor = .white
-        textView.font = UIFont.systemFont(ofSize: 18.sp, weight: .medium)
-        textView.isEditable = false
-        textView.showsVerticalScrollIndicator = false
-        
+
+    private lazy var ruleContent: UITextView = {
+        let tv = UITextView()
+        tv.backgroundColor = .clear
+        tv.textColor = .white
+        tv.font = UIFont.systemFont(ofSize: 18.scaledF, weight: .medium)
+        tv.isEditable = false
+        tv.showsVerticalScrollIndicator = false
+
         let text = """
-        Welcome to Easy Fish Duel!
+        Welcome to FishSlotDuel!
 
         [ Two-Player Mode ]
         Two players play on the same device.
-        
+
         Preparation:
         A deck of 52 cards (without Jokers) is shuffled and divided equally between two players. Each player holds 26 cards.
-        
+
         How to Play:
         Players take turns playing 1 card to the "Public Area" in the center of the screen. The newly played card is stacked below the previous one, forming a line.
-        
+
         Fishing Rule:
         When you play a card, if its number matches ANY card already in the Public Area (regardless of suit), you "catch the fish"! You win all the cards between your played card and the matching card, including both matching cards. These won cards are added to your score pile.
-        
+
         End Game:
         The game ends when a player runs out of cards in their hand. The player with the most cards in their score pile wins the game!
 
@@ -111,87 +105,73 @@ class InstructionsViewController: UIViewController {
 
         Strategy:
         Misses reset combo and reduce Tide, so decide when to continue spinning or Cash Out.
-        
+
         [ Single-Player Mode ]
         Play against the AI. The rules are exactly the same as the Two-Player mode.
-        
+
         Good luck and have fun!
         """
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 8
-        
-        let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 18.sp, weight: .medium),
+
+        let ps = NSMutableParagraphStyle()
+        ps.lineSpacing = 8
+
+        let attrs: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 18.scaledF, weight: .medium),
             .foregroundColor: UIColor.white,
-            .paragraphStyle: paragraphStyle
+            .paragraphStyle: ps
         ]
-        
-        textView.attributedText = NSAttributedString(string: text, attributes: attributes)
-        
-        return textView
+
+        tv.attributedText = NSAttributedString(string: text, attributes: attrs)
+        return tv
     }()
 
-    /// 视图加载完成
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
-    /// 视图将要出现，添加入场动画
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        containerView.transform = CGAffineTransform(translationX: 0, y: 100)
-        containerView.alpha = 0
-        
-        UIView.animate(withDuration: 0.6, delay: 0.1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
-            self.containerView.transform = .identity
-            self.containerView.alpha = 1
-        }, completion: nil)
+        containerView.playPreset(.slideUp, delay: 0.1)
     }
-    
-    /// 设置UI
+
     private func setupUI() {
         view.addSubview(backgroundImageView)
         view.addSubview(backBtn)
         view.addSubview(titleLabel)
         view.addSubview(containerView)
-        containerView.addSubview(instructionsTextView)
-        
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        backBtn.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        instructionsTextView.translatesAutoresizingMaskIntoConstraints = false
-        
+        containerView.addSubview(ruleContent)
+
+        [backgroundImageView, backBtn, titleLabel, containerView, ruleContent].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+
         NSLayoutConstraint.activate([
             backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            backBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10.w),
-            backBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.w),
-            backBtn.widthAnchor.constraint(equalToConstant: 40.w),
-            backBtn.heightAnchor.constraint(equalToConstant: 40.w),
-            
+
+            backBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10.scaledW),
+            backBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.scaledW),
+            backBtn.widthAnchor.constraint(equalToConstant: 40.scaledW),
+            backBtn.heightAnchor.constraint(equalToConstant: 40.scaledW),
+
             titleLabel.centerYAnchor.constraint(equalTo: backBtn.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            containerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30.w),
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.w),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.w),
-            containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20.w),
-            
-            instructionsTextView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20.w),
-            instructionsTextView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20.w),
-            instructionsTextView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20.w),
-            instructionsTextView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20.w)
+
+            containerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30.scaledW),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.scaledW),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.scaledW),
+            containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20.scaledW),
+
+            ruleContent.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20.scaledW),
+            ruleContent.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20.scaledW),
+            ruleContent.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20.scaledW),
+            ruleContent.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20.scaledW)
         ])
     }
-    
-    /// 返回按钮点击事件
+
     @objc private func backTapped() {
         navigationController?.popViewController(animated: true)
     }

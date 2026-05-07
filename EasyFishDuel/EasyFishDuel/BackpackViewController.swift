@@ -1,66 +1,66 @@
 import UIKit
 
-class BackpackViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class StashController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    private var items: [FishInventoryItem] = []
+    private var contents: [HaulEntry] = []
 
     private lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "easyImage")
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
+        let v = UIImageView()
+        v.image = UIImage(named: "easyImage")
+        v.contentMode = .scaleAspectFill
+        v.clipsToBounds = true
+        return v
     }()
 
     private lazy var backBtn: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = UIColor(white: 1.0, alpha: 0.25)
-        button.layer.cornerRadius = 20.w
-        button.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
-        return button
+        let b = UIButton(type: .system)
+        b.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        b.tintColor = .white
+        b.backgroundColor = UIColor(white: 1.0, alpha: 0.25)
+        b.layer.cornerRadius = 20.scaledW
+        b.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        return b
     }()
 
     private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "My Backpack"
-        label.font = UIFont.systemFont(ofSize: 30.sp, weight: .bold)
-        label.textColor = .white
-        return label
+        let l = UILabel()
+        l.text = "My Backpack"
+        l.font = UIFont.systemFont(ofSize: 30.scaledF, weight: .bold)
+        l.textColor = .white
+        return l
     }()
 
-    private lazy var coinLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .systemYellow
-        label.font = UIFont.boldSystemFont(ofSize: 18.sp)
-        label.textAlignment = .right
-        return label
+    private lazy var chipBadge: UILabel = {
+        let l = UILabel()
+        l.textColor = .systemYellow
+        l.font = UIFont.boldSystemFont(ofSize: 18.scaledF)
+        l.textAlignment = .right
+        return l
     }()
 
     private lazy var tableView: UITableView = {
-        let table = UITableView()
-        table.backgroundColor = .clear
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "FishCell")
-        table.dataSource = self
-        table.delegate = self
-        table.separatorStyle = .none
-        table.rowHeight = 84.w
-        table.estimatedRowHeight = 84.w
-        return table
+        let t = UITableView()
+        t.backgroundColor = .clear
+        t.register(UITableViewCell.self, forCellReuseIdentifier: "FishCell")
+        t.dataSource = self
+        t.delegate = self
+        t.separatorStyle = .none
+        t.rowHeight = 84.scaledW
+        t.estimatedRowHeight = 84.scaledW
+        return t
     }()
 
-    private lazy var emptyLabel: UILabel = {
-        let label = UILabel()
-        label.text = "No fish yet.\nGo catch some fish!"
-        label.textColor = UIColor.white.withAlphaComponent(0.85)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 20.sp, weight: .medium)
-        return label
+    private lazy var blankHint: UILabel = {
+        let l = UILabel()
+        l.text = "No fish yet.\nGo catch some fish!"
+        l.textColor = UIColor.white.withAlphaComponent(0.85)
+        l.textAlignment = .center
+        l.numberOfLines = 0
+        l.font = UIFont.systemFont(ofSize: 20.scaledF, weight: .medium)
+        return l
     }()
 
-    private func fishDisplayName(for symbol: String) -> String {
+    private func wareLabel(for symbol: String) -> String {
         switch symbol {
         case "fish.fill": return "Minnow"
         case "leaf.fill": return "Leaf Fish"
@@ -79,18 +79,20 @@ class BackpackViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadData()
+        refreshStash()
     }
 
     private func setupUI() {
         view.addSubview(backgroundImageView)
         view.addSubview(backBtn)
         view.addSubview(titleLabel)
-        view.addSubview(coinLabel)
+        view.addSubview(chipBadge)
         view.addSubview(tableView)
-        view.addSubview(emptyLabel)
+        view.addSubview(blankHint)
 
-        [backgroundImageView, backBtn, titleLabel, coinLabel, tableView, emptyLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [backgroundImageView, backBtn, titleLabel, chipBadge, tableView, blankHint].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
 
         NSLayoutConstraint.activate([
             backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -98,35 +100,35 @@ class BackpackViewController: UIViewController, UITableViewDataSource, UITableVi
             backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-            backBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10.w),
-            backBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.w),
-            backBtn.widthAnchor.constraint(equalToConstant: 40.w),
-            backBtn.heightAnchor.constraint(equalToConstant: 40.w),
+            backBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10.scaledW),
+            backBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.scaledW),
+            backBtn.widthAnchor.constraint(equalToConstant: 40.scaledW),
+            backBtn.heightAnchor.constraint(equalToConstant: 40.scaledW),
 
             titleLabel.centerYAnchor.constraint(equalTo: backBtn.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-            coinLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16.w),
-            coinLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.w),
-            coinLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.w),
+            chipBadge.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16.scaledW),
+            chipBadge.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.scaledW),
+            chipBadge.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.scaledW),
 
-            tableView.topAnchor.constraint(equalTo: coinLabel.bottomAnchor, constant: 12.w),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.w),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.w),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10.w),
+            tableView.topAnchor.constraint(equalTo: chipBadge.bottomAnchor, constant: 12.scaledW),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.scaledW),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.scaledW),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10.scaledW),
 
-            emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emptyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            blankHint.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            blankHint.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 
-    private func loadData() {
-        items = PlayerProgressManager.shared.loadInventory()
-        coinLabel.text = "Coins: \(PlayerProgressManager.shared.coins)"
+    private func refreshStash() {
+        contents = MeritLedger.active.loadStash()
+        chipBadge.text = "Coins: \(MeritLedger.active.chips)"
         tableView.reloadData()
-        let isEmpty = items.isEmpty
-        tableView.isHidden = isEmpty
-        emptyLabel.isHidden = !isEmpty
+        let empty = contents.isEmpty
+        tableView.isHidden = empty
+        blankHint.isHidden = !empty
     }
 
     @objc private func backTapped() {
@@ -134,7 +136,7 @@ class BackpackViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
+        contents.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -143,87 +145,87 @@ class BackpackViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.selectionStyle = .none
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
 
-        let item = items[indexPath.row]
-        let container = UIView()
-        container.backgroundColor = UIColor.black.withAlphaComponent(0.55)
-        container.layer.cornerRadius = 10.w
-        cell.contentView.addSubview(container)
-        container.translatesAutoresizingMaskIntoConstraints = false
+        let entry = contents[indexPath.row]
+        let wrap = UIView()
+        wrap.backgroundColor = UIColor.black.withAlphaComponent(0.55)
+        wrap.layer.cornerRadius = 10.scaledW
+        cell.contentView.addSubview(wrap)
+        wrap.translatesAutoresizingMaskIntoConstraints = false
 
-        let fishIcon = UIImageView()
-        fishIcon.image = UIImage(systemName: item.fishType)
-        fishIcon.tintColor = .systemYellow
-        fishIcon.contentMode = .scaleAspectFit
+        let icon = UIImageView()
+        icon.image = UIImage(systemName: entry.wareKind)
+        icon.tintColor = .systemYellow
+        icon.contentMode = .scaleAspectFit
 
-        let countLabel = UILabel()
-        countLabel.text = "x\(item.count)"
-        countLabel.textColor = .systemYellow
-        countLabel.font = UIFont.boldSystemFont(ofSize: 18.sp)
+        let countBadge = UILabel()
+        countBadge.text = "x\(entry.amount)"
+        countBadge.textColor = .systemYellow
+        countBadge.font = UIFont.boldSystemFont(ofSize: 18.scaledF)
 
-        let nameLabel = UILabel()
-        nameLabel.text = fishDisplayName(for: item.fishType)
-        nameLabel.textColor = .white
-        nameLabel.font = UIFont.boldSystemFont(ofSize: 17.sp)
-        nameLabel.adjustsFontSizeToFitWidth = true
-        nameLabel.minimumScaleFactor = 0.75
+        let nameBadge = UILabel()
+        nameBadge.text = wareLabel(for: entry.wareKind)
+        nameBadge.textColor = .white
+        nameBadge.font = UIFont.boldSystemFont(ofSize: 17.scaledF)
+        nameBadge.adjustsFontSizeToFitWidth = true
+        nameBadge.minimumScaleFactor = 0.75
 
-        let exchangeBtn = UIButton(type: .system)
-        exchangeBtn.setTitle("Exchange", for: .normal)
-        exchangeBtn.tintColor = .white
-        exchangeBtn.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.75)
-        exchangeBtn.layer.cornerRadius = 8.w
-        exchangeBtn.tag = indexPath.row
-        exchangeBtn.addTarget(self, action: #selector(exchangeTapped(_:)), for: .touchUpInside)
+        let barterBtn = UIButton(type: .system)
+        barterBtn.setTitle("Exchange", for: .normal)
+        barterBtn.tintColor = .white
+        barterBtn.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.75)
+        barterBtn.layer.cornerRadius = 8.scaledW
+        barterBtn.tag = indexPath.row
+        barterBtn.addTarget(self, action: #selector(barterTapped(_:)), for: .touchUpInside)
 
-        container.addSubview(fishIcon)
-        container.addSubview(nameLabel)
-        container.addSubview(countLabel)
-        container.addSubview(exchangeBtn)
-        [fishIcon, nameLabel, countLabel, exchangeBtn].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        wrap.addSubview(icon)
+        wrap.addSubview(nameBadge)
+        wrap.addSubview(countBadge)
+        wrap.addSubview(barterBtn)
+        [icon, nameBadge, countBadge, barterBtn].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
         NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 6.w),
-            container.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -6.w),
-            container.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor),
-            container.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor),
+            wrap.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 6.scaledW),
+            wrap.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -6.scaledW),
+            wrap.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor),
+            wrap.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor),
 
-            fishIcon.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12.w),
-            fishIcon.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            fishIcon.widthAnchor.constraint(equalToConstant: 30.w),
-            fishIcon.heightAnchor.constraint(equalToConstant: 30.w),
+            icon.leadingAnchor.constraint(equalTo: wrap.leadingAnchor, constant: 12.scaledW),
+            icon.centerYAnchor.constraint(equalTo: wrap.centerYAnchor),
+            icon.widthAnchor.constraint(equalToConstant: 30.scaledW),
+            icon.heightAnchor.constraint(equalToConstant: 30.scaledW),
 
-            nameLabel.leadingAnchor.constraint(equalTo: fishIcon.trailingAnchor, constant: 10.w),
-            nameLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            nameBadge.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: 10.scaledW),
+            nameBadge.centerYAnchor.constraint(equalTo: wrap.centerYAnchor),
 
-            countLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 8.w),
-            countLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            countLabel.trailingAnchor.constraint(lessThanOrEqualTo: exchangeBtn.leadingAnchor, constant: -8.w),
+            countBadge.leadingAnchor.constraint(equalTo: nameBadge.trailingAnchor, constant: 8.scaledW),
+            countBadge.centerYAnchor.constraint(equalTo: wrap.centerYAnchor),
+            countBadge.trailingAnchor.constraint(lessThanOrEqualTo: barterBtn.leadingAnchor, constant: -8.scaledW),
 
-            exchangeBtn.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -12.w),
-            exchangeBtn.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            exchangeBtn.widthAnchor.constraint(equalToConstant: 112.w),
-            exchangeBtn.heightAnchor.constraint(equalToConstant: 34.w)
+            barterBtn.trailingAnchor.constraint(equalTo: wrap.trailingAnchor, constant: -12.scaledW),
+            barterBtn.centerYAnchor.constraint(equalTo: wrap.centerYAnchor),
+            barterBtn.widthAnchor.constraint(equalToConstant: 112.scaledW),
+            barterBtn.heightAnchor.constraint(equalToConstant: 34.scaledW)
         ])
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        84.w
+        84.scaledW
     }
 
-    @objc private func exchangeTapped(_ sender: UIButton) {
-        let index = sender.tag
-        guard index >= 0, index < items.count else { return }
-        let item = items[index]
-        let gain = PlayerProgressManager.shared.exchangeFishToCoins(type: item.fishType, count: 1)
+    @objc private func barterTapped(_ sender: UIButton) {
+        let idx = sender.tag
+        guard idx >= 0, idx < contents.count else { return }
+        let entry = contents[idx]
+        let gain = MeritLedger.active.barterWare(kind: entry.wareKind, amount: 1)
         if gain > 0 {
-            DailyTaskManager.shared.updateProgress(for: .sellFish, amount: 1)
+            ErrandRegistry.active.markProgress(kind: .haulBarter, by: 1)
         }
         let message = gain > 0 ? "1 fish exchanged for \(gain) coins." : "Exchange failed."
         let alert = UIAlertController(title: "Exchange", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.loadData()
+            self.refreshStash()
         }))
         present(alert, animated: true)
     }

@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(xcodebuild -project EasyFishDuel.xcodeproj -scheme EasyFishDuel -destination 'platform=iOS Simulator,name=iPhone 16' build)",
-      "Bash(xcodebuild -project /Users/hades/Desktop/Code/26/05/0506-77/2/EasyFishDuel/EasyFishDuel.xcodeproj -scheme EasyFishDuel -destination 'platform=iOS Simulator,id=AFE41BC1-ED72-420D-BD99-0E0AA9D35E6B' build)"
+      "Bash(xcodebuild -project /Users/hades/Desktop/Code/26/05/0506-77/2/EasyFishDuel/EasyFishDuel.xcodeproj -scheme EasyFishDuel -destination 'platform=iOS Simulator,id=AFE41BC1-ED72-420D-BD99-0E0AA9D35E6B' build)",
+      "Bash(xargs -I{} basename {})",
+      "Bash(grep *)"
     ]
   }
 }
